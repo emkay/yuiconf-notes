@@ -60,3 +60,41 @@ ES6 modules are defining a new syntax to declaritively import from other modules
 
 The goal is to use tooling to transpile modules into es6 modules. allows for backwards compatability.
 
+
+## THE STATE OF GESTURES by Tilo Mitra
+
+This talk is a technical deep dive into the world of gesture events. I'll introduce the work that has been and is currently being done in YUI Gestures and how you can use gesture events to create user experiences for mouse/touch and devices that support both.
+
+### Challenges of multi-device user experiences
+
+#### Evolving world of inputs
+
+Primarily people used to interact with your site with a mouse.
+Now we have touch devices, accelerometer, gyroscope, etc.
+Recently we have had devices coming through that has mouse + touch.
+
+This complicates things.
+
+### Decouple events from inputs
+
+What the [pointer spec](http://www.w3.org/TR/pointerevents/) is all about.
+
+Pollyfill? nah improve the `gesturemove` events.
+
+No matter what event comes in: 
+* touch
+* mouse
+* MSPointer
+
+fire a `geaturemove` event.
+
+Higher level events that are built on top of `gesturemove` events:
+* tap
+* flick
+* move/drag
+
+`flick` is getting `flickup`, `flickleft`, etc. payload is direction velocity.
+
+`geaturemovestart` is getting direction, `deltaX`, `deltaY`.
+
+
